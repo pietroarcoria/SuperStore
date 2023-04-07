@@ -10,20 +10,21 @@ public class Main {
             System.out.println("Your balance: $" + player.getBalance());
             store.showItems();
             System.out.print("Enter the ID of the car you want to buy: ");
-            Scanner scanner = new Scanner(System.in);
-            int itemId = scanner.nextInt();
-            Item item = store.getItem(itemId);
+            try (Scanner scanner = new Scanner(System.in)) {
+                int itemId = scanner.nextInt();
+                Item item = store.getItem(itemId);
 
-            if (item == null) {
-                System.out.println("Invalid item ID. Try again.");
-                continue;
-            }
+                if (item == null) {
+                    System.out.println("Invalid item ID. Try again.");
+                    continue;
+                }
 
-            if (player.buyItem(item)) {
-                System.out.println("You bought a " + item.getName() + " for $" + item.getPrice() + ".");
-                store.updateItemPrice(item);
-            } else {
-                System.out.println("You cannot afford this item.");
+                if (player.buyItem(item)) {
+                    System.out.println("You bought a " + item.getName() + " for $" + item.getPrice() + ".");
+                    store.updateItemPrice(item);
+                } else {
+                    System.out.println("You cannot afford this item.");
+                }
             }
         }
 
@@ -85,6 +86,9 @@ class Store {
         items.add(new Item(10, "Nissan Skyline R-34", 400000, "Drift"));
     }
 
+    public void updateItemPrice(Item item) {
+    }
+
     public Item getItem(int id) {
         for (Item item : items) {
             if (item.getId() == id) {
@@ -101,4 +105,6 @@ class Store {
         }
     }
 
-    public void updateItemPrice
+    
+}
+    

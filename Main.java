@@ -107,4 +107,39 @@ class Store {
 
     
 }
+
+class Main {
+    public static void main(String[] args) {
+        // create an inventory
+        Inventory inventory = new Inventory();
+
+        // create items
+        Item LaFerrari = new Supercar(1, "La Ferrari", 1500000);
+        Item BugattiChiron = new Supercar(2, "Bugatti Chiron", 3000000);
+        Item PaganiZonda = new Supercar(3, "Pagani Zonda", 15000000);
+        Item JeepCherokee = new SUV(4, "Jeep Cherokee", 50000);
+        Item RangeRoverSport = new SUV(5, "Range Rover Sport", 100000);
+        Item LamborghiniUrus = new SUV(6, "Lamborghini Urus", 300000);
+        Item MazdaMiata = new Drift(7, "Mazda Miata", 30000);
+        Item SupraMkIv = new Drift(8, "Supra MkIv", 80000);
+        Item BMWE30 = new Drift(9, "BMW E30", 130000);
+        Item SkylineR34 = new Drift(10, "Skyline R34", 400000);
+
+        // add items to the inventory
+        inventory.add(LaFerrari);
+        inventory.add(BugattiChiron);
+        inventory.add(PaganiZonda);
+        inventory.add(JeepCherokee);
+        inventory.add(RangeRoverSport);
+        inventory.add(LamborghiniUrus);
+        inventory.add(MazdaMiata);
+        inventory.add(SupraMkIv);
+        inventory.add(BMWE30);
+        inventory.add(SkylineR34);
+
+        // print the inventory
+        System.out.println(inventory);
+    }
+}
+
     
